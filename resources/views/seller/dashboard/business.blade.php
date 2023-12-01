@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 
-
-
-
-
 @include('seller/dashboard/master/header1')
 
 
@@ -15,7 +11,6 @@
     <br> <br> <br>
     <div class="conatiner-fluid content-inner mt-n5 py-0">
         <div class="row">
-
 
             <div class="card">
                 <div class="card-header pb-3">

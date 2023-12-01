@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 
@@ -11,7 +10,7 @@
         <div class="row">
 
             @php
-            /*
+                /*
             $data=json_decode('{
           "id": "PAYID-MVFLIKQ9WB86875SY844725R",
           "intent": "sale",
@@ -145,314 +144,305 @@
           "failed_transactions": []
         }',true);
        */
-        @endphp
+            @endphp
             <div class="card">
                 <div class="card-header pb-3">
-                  <h3 class="block-title">Transaction Detail</h3>
+                    <h3 class="block-title">Transaction Detail</h3>
                 </div>
                 <div class="card-body p-0">
-                   <div class="table-responsive pt-2">
-                      <table id="my-table" class="table mb-0">
-                         <thead>
-                            <tr>
-                               <th>
-                                
-                               </th>
-                               <th>
-                                
-                               </th>
-                            </tr>
-                         </thead>
-                         <tbody>
-                            <tr>
-                               <td class="text-center child-cell">
-                                Transaction
-                               </td>
-                               <td class="text-center child-cell active">
-                                 Detail
-                               </td>
-                             
-                            </tr>
-                            
-                            <tr>
-                                <td class="text-center child-cell">
-                                 Payment Id
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$data['id']}}
-                                </td>
-                              
-                             </tr>
-                            
-                          
-                             <tr>
-                                <td class="text-center child-cell">
-                                 state
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$data['state']}}
-                                </td>
-                              
-                             </tr>
+                    <div class="table-responsive pt-2">
+                        <table id="my-table" class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>
 
-                             <tr>
-                                <td class="text-center child-cell">
-                                 method of payment
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$data['payer']['payment_method']}}
-                                </td>
-                              
-                             </tr>
+                                    </th>
+                                    <th>
 
-                             <tr>
-                                <td class="text-center child-cell">
-                                 status
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$data['payer']['status']}}
-                                </td>
-                              
-                             </tr>
-                       
-                       
-                           
-                             @foreach ($data['payer']['payer_info'] as $keys=>$vals)
-                             @if($keys!='shipping_address')
-                             <tr>
-                                <td class="text-center child-cell">
-                                 {{$keys}}
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$vals}}
-                                </td>
-                              
-                             </tr>
-                         @endif
-                             
-                                 @endforeach
-
-                                 @foreach ($data['payer']['payer_info']['shipping_address'] as $keyss=>$valss)
-                                 <tr>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
                                     <td class="text-center child-cell">
-                                     {{$keyss}}
+                                        Transaction
                                     </td>
                                     <td class="text-center child-cell active">
-                                      {{$valss}}
+                                        Detail
                                     </td>
-                                  
-                                 </tr>
-                                 @endforeach
 
-                                 
-                           
-                             @foreach ($data['transactions'][0]['amount'] as $keys=>$vals)
-                             @if($keys!='details')
-                             <tr>
-                                <td class="text-center child-cell">
-                                 {{$keys}}
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$vals}}
-                                </td>
-                              
-                             </tr>
-                         @endif
-                             
-                                 @endforeach
+                                </tr>
 
-
-                                 @foreach ($data['transactions'][0]['amount']['details'] as $keys=>$vals)
-                                
-                                 <tr>
+                                <tr>
                                     <td class="text-center child-cell">
-                                     {{$keys}}
+                                        Payment Id
                                     </td>
                                     <td class="text-center child-cell active">
-                                      {{$vals}}
+                                        {{ $data['id'] }}
                                     </td>
-                                  
-                                 </tr>
-                            
-                                 
-                                     @endforeach
-                           
-                             
-                          
-                                     <tr>
-                                      <td class="text-center child-cell">
-                                       Total
-                                      </td>
-                                      <td class="text-center child-cell active">
-                                        {{$data['transactions'][0]['amount']['total']}}&nbsp;
-                                        {{$data['transactions'][0]['amount']['currency']}}
-                                      </td>                            
-                                   </tr>
-                         
 
-                             
-                          
-                                   <tr>
+                                </tr>
+
+
+                                <tr>
                                     <td class="text-center child-cell">
-                                     Details
+                                        state
                                     </td>
                                     <td class="text-center child-cell active">
-                                    
-                                    </td>                            
-                                 </tr>
+                                        {{ $data['state'] }}
+                                    </td>
 
-                          
-                                 <tr>
-                                  <td class="text-center child-cell">
-                                   Total
-                                  </td>
-                                  <td class="text-center child-cell active">
-                                    {{$data['transactions'][0]['amount']['details']['subtotal']}}&nbsp;
-                                    {{$data['transactions'][0]['amount']['currency']}}
-                                  </td>                            
-                               </tr>
+                                </tr>
 
-                               
-                          
-                               <tr>
-                                <td class="text-center child-cell">
-                                 Total
-                                </td>
-                                <td class="text-center child-cell active">
-                                  {{$data['transactions'][0]['amount']['details']['subtotal']}}&nbsp;
-                                  {{$data['transactions'][0]['amount']['currency']}}
-                                </td>                            
-                             </tr>
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        method of payment
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['payer']['payment_method'] }}
+                                    </td>
 
-                             
-                          
-                             <tr>
-                              <td class="text-center child-cell">
-                                shipping
-                              </td>
-                              <td class="text-center child-cell active">
-                                {{$data['transactions'][0]['amount']['details']['shipping']}}&nbsp;
-                                {{$data['transactions'][0]['amount']['currency']}}
-                              </td>                            
-                           </tr>
+                                </tr>
 
-                           
-                           <tr>
-                            <td class="text-center child-cell">
-                              insurance
-                            </td>
-                            <td class="text-center child-cell active">
-                              {{$data['transactions'][0]['amount']['details']['insurance']}}&nbsp;
-                              {{$data['transactions'][0]['amount']['currency']}}
-                            </td>                            
-                         </tr>
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        status
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['payer']['status'] }}
+                                    </td>
 
-                         
-
-                           
-                         <tr>
-                          <td class="text-center child-cell">
-                            Handling Fee
-                          </td>
-                          <td class="text-center child-cell active">
-                            {{$data['transactions'][0]['amount']['details']['handling_fee']}}&nbsp;
-                            {{$data['transactions'][0]['amount']['currency']}}
-                          </td>                            
-                       </tr>
-
-                       
-                           
-                       <tr>
-                        <td class="text-center child-cell">
-                          Shipping Fee
-                        </td>
-                        <td class="text-center child-cell active">
-                          {{$data['transactions'][0]['amount']['details']['shipping_discount']}}&nbsp;
-                          {{$data['transactions'][0]['amount']['currency']}}
-                        </td>                            
-                     </tr>
-
-                     
-                           
-                     <tr>
-                      <td class="text-center child-cell">
-                        Discount
-                      </td>
-                      <td class="text-center child-cell active">
-                        {{$data['transactions'][0]['amount']['details']['discount']}}&nbsp;
-                        {{$data['transactions'][0]['amount']['currency']}}
-                      </td>                            
-                   </tr>
-
- <tr>
-                    <td class="text-center child-cell">
-                      Item Detail
-                    </td>
-                    <td class="text-center child-cell active">
-                    
-                    </td>                            
-                 </tr>
-
-                  @foreach ($data['transactions'][0]['item_list']['items'][0] as $key=>$val)
-                        
-                       
-                 <tr>
-                  <td class="text-center child-cell">
-                   {{$key}}
-                  </td>
-                  <td class="text-center child-cell active">
-                    {{$val}}
-                  </td>                            
-               </tr>
-               @endforeach  
-                   
-                           
-                   <tr>
-                    <td class="text-center child-cell">
-                      Shipping Address
-                    </td>
-                    <td class="text-center child-cell active">
-                    
-                    </td>                            
-                 </tr>
-                  
-
-                 
-                      @foreach ($data['transactions'][0]['item_list']['shipping_address'] as $key=>$val)
-                        
-                       
-                 <tr>
-                  <td class="text-center child-cell">
-                   {{$key}}
-                  </td>
-                  <td class="text-center child-cell active">
-                    {{$val}}
-                  </td>                            
-               </tr>
-               @endforeach  
-
-                          
-                             <tr>
-                              <td class="text-center child-cell">
-                               Cart
-                              </td>
-                              <td class="text-center child-cell active">
-                                {{$data['cart']}}
-                              </td>                            
-                           </tr>
-                       
+                                </tr>
 
 
-                         </tbody>
-                      </table>
-                      
-                   </div>
+
+                                @foreach ($data['payer']['payer_info'] as $keys => $vals)
+                                    @if ($keys != 'shipping_address')
+                                        <tr>
+                                            <td class="text-center child-cell">
+                                                {{ $keys }}
+                                            </td>
+                                            <td class="text-center child-cell active">
+                                                {{ $vals }}
+                                            </td>
+
+                                        </tr>
+                                    @endif
+                                @endforeach
+
+                                @foreach ($data['payer']['payer_info']['shipping_address'] as $keyss => $valss)
+                                    <tr>
+                                        <td class="text-center child-cell">
+                                            {{ $keyss }}
+                                        </td>
+                                        <td class="text-center child-cell active">
+                                            {{ $valss }}
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+
+
+
+                                @foreach ($data['transactions'][0]['amount'] as $keys => $vals)
+                                    @if ($keys != 'details')
+                                        <tr>
+                                            <td class="text-center child-cell">
+                                                {{ $keys }}
+                                            </td>
+                                            <td class="text-center child-cell active">
+                                                {{ $vals }}
+                                            </td>
+
+                                        </tr>
+                                    @endif
+                                @endforeach
+
+
+                                @foreach ($data['transactions'][0]['amount']['details'] as $keys => $vals)
+                                    <tr>
+                                        <td class="text-center child-cell">
+                                            {{ $keys }}
+                                        </td>
+                                        <td class="text-center child-cell active">
+                                            {{ $vals }}
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Total
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['total'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Details
+                                    </td>
+                                    <td class="text-center child-cell active">
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Total
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['subtotal'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Total
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['subtotal'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        shipping
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['shipping'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        insurance
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['insurance'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Handling Fee
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['handling_fee'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Shipping Fee
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['shipping_discount'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Discount
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['transactions'][0]['amount']['details']['discount'] }}&nbsp;
+                                        {{ $data['transactions'][0]['amount']['currency'] }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Item Detail
+                                    </td>
+                                    <td class="text-center child-cell active">
+
+                                    </td>
+                                </tr>
+
+                                @foreach ($data['transactions'][0]['item_list']['items'][0] as $key => $val)
+                                    <tr>
+                                        <td class="text-center child-cell">
+                                            {{ $key }}
+                                        </td>
+                                        <td class="text-center child-cell active">
+                                            {{ $val }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Shipping Address
+                                    </td>
+                                    <td class="text-center child-cell active">
+
+                                    </td>
+                                </tr>
+
+
+
+                                @foreach ($data['transactions'][0]['item_list']['shipping_address'] as $key => $val)
+                                    <tr>
+                                        <td class="text-center child-cell">
+                                            {{ $key }}
+                                        </td>
+                                        <td class="text-center child-cell active">
+                                            {{ $val }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+
+                                <tr>
+                                    <td class="text-center child-cell">
+                                        Cart
+                                    </td>
+                                    <td class="text-center child-cell active">
+                                        {{ $data['cart'] }}
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
 
             </div>
-            
-          
-    </div>
+
+
+        </div>
 </main>
 
 

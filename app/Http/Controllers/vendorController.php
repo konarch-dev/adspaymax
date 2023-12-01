@@ -35,6 +35,11 @@ class vendorController extends Controller
         return view('seller.dashboard.pricing');
     }
 
+    public function businessprice(Request $request)
+    {
+
+        return view('seller.dashboard.business');
+    }
 
     public function payhistory(Request $request)
     {
