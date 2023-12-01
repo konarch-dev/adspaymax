@@ -167,7 +167,7 @@
 
                                                 <span>
                                                     <input type="text" id="zip" placeholder="ZIp COde"
-                                                        class="form-control" value="{{ old('zip') }}"" name="zip"
+                                                        class="form-control" value="{{ old('zip') }}" name="zip"
                                                         placeholder="Enter zip code" required>
                                                 </span>
 
