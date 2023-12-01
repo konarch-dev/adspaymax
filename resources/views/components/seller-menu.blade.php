@@ -5,7 +5,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="/apmax1-ddbkp/seller">
+    <a class="nav-link active" aria-current="page" href="/git/adspaymax/seller">
         <i class="icon">
             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-20">
                 <path opacity="0.4"
@@ -51,7 +51,7 @@
     </a>
     <ul class="sub-nav collapse" id="horizontal-menu" data-bs-parent="#sidebar-menu">
         <li class="nav-item">
-            <a class="nav-link " href="/apmax1-ddbkp/seller/addcoupon/">
+            <a class="nav-link " href="/git/adspaymax/seller/addcoupon/">
                 <i class="icon">
                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                         fill="currentColor">
@@ -65,7 +65,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="/apmax1-ddbkp/seller/couponlist/">
+            <a class="nav-link " href="/git/adspaymax/seller/couponlist/">
                 <i class="icon">
                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                         fill="currentColor">
@@ -117,7 +117,7 @@
     </a>
     <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
         <li class="nav-item">
-            <a class="nav-link " href="/apmax1-ddbkp/seller/profile/">
+            <a class="nav-link " href="/git/adspaymax/seller/profile/">
                 <i class="icon">
                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                         fill="currentColor">
@@ -230,7 +230,7 @@
 
             <ul class="sub-nav collapse" id="sidebar-member-1" data-bs-parent="#sidebar-member-1">
                 <li class="nav-item">
-                    <a class="nav-link " href="/apmax1-ddbkp/seller/pricing/">
+                    <a class="nav-link " href="/git/adspaymax/seller/pricing/">
                         <i class="icon">
                             <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                 viewBox="0 0 24 24" fill="currentColor">
@@ -245,7 +245,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="/apmax1-ddbkp/seller/businessprice/">
+                    <a class="nav-link " href="/git/adspaymax/seller/businessprice/">
                         <i class="icon">
                             <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                 viewBox="0 0 24 24" fill="currentColor">
@@ -262,7 +262,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link " href="/apmax1-ddbkp/seller/payhistory/">
+            <a class="nav-link " href="/git/adspaymax/seller/payhistory/">
                 <i class="icon">
                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                         fill="currentColor">
