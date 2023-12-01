@@ -34,7 +34,6 @@ class vendorController extends Controller
 
         return view('seller.dashboard.pricing');
     }
-
     public function businessprice(Request $request)
     {
 
@@ -74,7 +73,6 @@ class vendorController extends Controller
             return redirect()->route('seller.register');
         } else {
 
-
             $inputs = [
                 'email'    => $request->email,
                 'password' => $request->password,
@@ -96,24 +94,19 @@ class vendorController extends Controller
             // check if the validator failed -----------------------
             if ($validator->fails()) {
 
-                // get the error messages from the validator
+
                 $messages = $validator->messages();
 
 
-                // redirect our user back to the form with the errors from the validator
                 return redirect()->route('seller.register')->withErrors($messages);
             } else {
-
-
-
-                $hashedPassword = Hash::make($request->password);
                 $country = Country::find($request->country);
 
                 //  return Hash::check("12334556h6", '$2y$10$u8PPa.xrp.Sog0u8TzaHHOV.BQ6wZJCd5sSwm.eVcAa/KM.6a6ZTS');
                 $userInsert = User::Create([
                     'name' => $request->fname,
                     'email' => $request->email,
-                    "password" => $hashedPassword,
+                    "password" => $request->password,
                     'detail' => $request->detail,
                     'store' => $request->storename,
                     'status' => 1,
@@ -126,17 +119,14 @@ class vendorController extends Controller
                 ]);
                 if ($userInsert) {
 
-
-
                     session::put('susername',  $request->fname);
                     session::put('semail',  $request->email);
                     session::put('stype',  "vendor");
                     session::put('sid',  $userInsert->id);
 
-
                     $imageName =  session::get('sid') . time() . '.' . $request->logo->extension();
 
-                    $path = public_path('images\\seller\\' . session::get('sid') . '\\');
+                    $path = public_path('/images/seller/' . session::get('sid') . '/');
                     if (!File::exists($path)) {
                         File::makeDirectory($path, 0777, true); //creates directory
                     }
@@ -144,13 +134,71 @@ class vendorController extends Controller
                     $request->logo->move($path, $imageName);
 
                     $products = User::find(session::get('sid'));
-                    $products->logo = '\images\\seller\\' . session::get('sid') . '\\' . "\\" . $imageName;
+                    $products->logo = '/images/seller/' . session::get('sid') . '/' . "/" . $imageName;
                     $products->save();
                 }
+
+                // mail code start here ............
+                $details = [
+                    'name' => $request->fname,
+
+                    'email' => $request->email,
+                    'Password' =>  $request->password,
+                    'store' => $request->storename,
+                    'Address' => $request->address
+
+                ];
+                'Mail'::to($request->email)->send(new \App\Mail\MyTestMail($details));
+
                 return redirect()->route('seller.dashboard');
             }
         }
     }
+
+
+    public function forgot(Request $request)
+    {
+
+        $data['countries'] = Country::get(["name", "id"])
+            ->where("id", 1);
+
+
+        return view('seller.dashboard.forgot', $data);
+    }
+
+    public function pass(Request $request)
+    {
+
+        //  return $request->state;
+        $selUser = User::select("email", "type")->where(['email' => $request->email, 'type' => "vendor", "status" => 1])->count();
+        if ($selUser > 0) {
+            // mail code start here ............
+            $selUser1 = User::select("*")->where(['email' => $request->email, 'type' => "vendor", "status" => 1])->get();
+
+            $details = [
+                'title' => 'Thank for registration with adspaymax',
+
+                'body' => 'This is for testing email using smtp',
+                'name' => $selUser1[0]['name'],
+
+                'email' => $selUser1[0]['email'],
+                'Password' => $selUser1[0]['password'],
+                'store' => $selUser1[0]['store'],
+                'Address' => $selUser1[0]['address']
+
+            ];
+            'Mail'::to($selUser1[0]['email'])->send(new \App\Mail\ForgotMail($details));
+
+            // dd("Email is Sent.");
+
+
+        } else {
+            Session::flash('message', 'user not exits');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect()->route('seller.forgot');
+        }
+    }
+
 
     public function login(Request $request)
     {
@@ -224,7 +272,6 @@ class vendorController extends Controller
             ->with('success', 'You have successfully added category.');
     }
 
-
     public function imageStore(Request $request)
     {
 
@@ -235,7 +282,7 @@ class vendorController extends Controller
 
             $imageName =  session::get('sid') . time() . '.' . $request->image->extension();
 
-            $path = public_path('images\\seller\\' . session::get('sid') . '\\');
+            $path = public_path('/images/seller/' . session::get('sid') . '/');
             if (!File::exists($path)) {
                 File::makeDirectory($path, 0777, true); //creates directory
             }
@@ -246,6 +293,7 @@ class vendorController extends Controller
             Write Code Here for
             Store $imageName name in DATABASE from HERE
         */
+
         $zipuser = User::find((int)session::get('sid'));
         Product::Create([
             'name' => $request->name,
@@ -258,7 +306,7 @@ class vendorController extends Controller
             'category' => $request->parent_category,
             'valid_till' => $request->valid,
             'status' => $request->listing,
-            'image' => '\images\\seller\\' . session::get('sid') . '\\' . "\\" . $imageName,
+            'image' => '/images/seller/' . session::get('sid') . '/' . "/" . $imageName,
             'zip1' => $zipuser->zip
         ]);
 
@@ -296,7 +344,7 @@ class vendorController extends Controller
 
             $imageName =  session::get('sid') . time() . '.' . $request->image->extension();
 
-            $path = public_path('images\\seller\\' . session::get('sid') . '\\');
+            $path = public_path('/images/seller/' . session::get('sid') . '/');
             if (!File::exists($path)) {
                 File::makeDirectory($path, 0777, true); //creates directory
             }
@@ -311,7 +359,7 @@ class vendorController extends Controller
             $products->detail = $request->detail;
             $products->code = $request->code;
             $products->category = $request->parent_category;
-            $products->image = '\images\\seller\\' . session::get('sid') . '\\' . "\\" . $imageName;
+            $products->image = '/images/seller/' . session::get('sid') . '/' . "/" . $imageName;
 
             $products->status = $request->listing;
             $products->valid_till =  Carbon::createFromFormat('d-m-Y', $request->valid)->format('Y-m-d');
@@ -496,7 +544,7 @@ class vendorController extends Controller
 
             $imageName =  session::get('sid') . time() . '.' . $request->image->extension();
 
-            $path = public_path('images\\seller\\' . session::get('sid') . '\\');
+            $path = public_path('images/seller/' . session::get('sid') . '/');
             if (!File::exists($path)) {
                 File::makeDirectory($path, 0777, true); //creates directory
             }
@@ -512,7 +560,7 @@ class vendorController extends Controller
             $userInsert->city = $request->city;
             $userInsert->zip = $request->zip;
             $userInsert->address = $request->address;
-            $userInsert->logo = '\images\\seller\\' . session::get('sid') . '\\' . "\\" . $imageName;
+            $userInsert->logo = '/images/seller/' . session::get('sid') . '/' . "/" . $imageName;
 
             $userInsert->save();
         } else {
@@ -564,6 +612,8 @@ class vendorController extends Controller
 
     public function dates(Request $request)
     {
+
+
 
         return $date = Carbon::now()->addDays(5)->format('m/d/Y');
     }
