@@ -59,7 +59,7 @@ class adminController extends Controller
             ];
 
             $user_create = User::create($inputs);
-            Mail::to($request->email)->send(new "UserSignUpMail");
+            Mail::to($request->email)->send(new 'UserSignUpMail');
 
 
             $rules = array(
