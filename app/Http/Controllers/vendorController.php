@@ -91,7 +91,7 @@ class vendorController extends Controller
 
             // do the validation ----------------------------------
             // validate against the inputs from our form
-            $validator = Validator::make($inputs, $rules);
+            $validator = 'Validator'::make($inputs, $rules);
 
             // check if the validator failed -----------------------
             if ($validator->fails()) {
@@ -424,7 +424,7 @@ class vendorController extends Controller
 
         //    $ip = $result['ip'];
         $ip = "99.88.83.171";
-        $data = \Location::get($ip);
+        $data = 'Location'::get($ip);
 
         $latitude = $data->latitude;
         $longitude = $data->longitude;

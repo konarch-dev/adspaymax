@@ -31,12 +31,12 @@
     <link rel="icon" href="{{ URL::asset('/assets/img/favicon.ico') }}" type="image/x-icon">
 
     <!-- Master Css -->
-    
-<link rel="stylesheet" href="{{ URL::asset('/assets/css/style.css') }}" />
-<link rel="stylesheet" href="{{ URL::asset('/assets/css/color.css') }}" />
-<link rel="stylesheet" href="{{ URL::asset('/assets/css/responsive.css') }}" id="colors" />
-<link rel="stylesheet" href="{{ URL::asset('/assets/css/color/style.css') }}" />
-@yield('style')
+
+    <link rel="stylesheet" href="{{ URL::asset('/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('/assets/css/color.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('/assets/css/responsive.css') }}" id="colors" />
+    <link rel="stylesheet" href="{{ URL::asset('/assets/css/color/style.css') }}" />
+    @yield('style')
 
 
 

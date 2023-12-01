@@ -58,6 +58,10 @@ class adminController extends Controller
                 'name' => $request->fname
             ];
 
+            $user_create = User::create($inputs);
+            Mail::to($request->email)->send(new "UserSignUpMail");
+
+
             $rules = array(
                 'name'             => 'required',                        // just a normal required validation
                 'email'            => 'required|email',     // required and must be unique in the ducks table
@@ -66,7 +70,7 @@ class adminController extends Controller
 
             // do the validation ----------------------------------
             // validate against the inputs from our form
-            $validator = Validator::make($inputs, $rules);
+            $validator = 'Validator'::make($inputs, $rules);
 
             // check if the validator failed -----------------------
             if ($validator->fails()) {
@@ -108,7 +112,7 @@ class adminController extends Controller
 
         $selUser = User::select("email", "type")->where(['email' => $request->email, 'type' => "admin"])->count();
         if ($selUser > 0) {
-            $selUserData = User::select("id", "name", "email", "type", "password")->where(['email' => $request->email, 'type' => "admin",'status'=>1])->get();
+            $selUserData = User::select("id", "name", "email", "type", "password")->where(['email' => $request->email, 'type' => "admin", 'status' => 1])->get();
 
             $hashedPassword = Hash::make($request->password);
 
@@ -188,9 +192,9 @@ class adminController extends Controller
 
             $request->image->move($path, $imageName);
         }
-        /* 
+        /*
             Write Code Here for
-            Store $imageName name in DATABASE from HERE 
+            Store $imageName name in DATABASE from HERE
         */
         Product::Create([
             'name' => $request->name,
@@ -368,9 +372,9 @@ class adminController extends Controller
         $result = json_decode(curl_exec($ch), true);
 
 
-        //    $ip = $result['ip']; 
+        //    $ip = $result['ip'];
         $ip = "99.88.83.171";
-        $data = \Location::get($ip);
+        $data = 'Location'::get($ip);
 
         $latitude = $data->latitude;
         $longitude = $data->longitude;
@@ -483,17 +487,13 @@ class adminController extends Controller
     public function userstatus(Request $request)
     {
         $products = User::find($request->id);
-        if($products->status==1)
-        {
-            $products->status=0;
+        if ($products->status == 1) {
+            $products->status = 0;
 
-            $item = Product::where('user_id',$request->id)->update(['status' => 0]);
-          
-
-        }
-        else{
-            $products->status=1;
-            $item = Product::where('user_id',$request->id)->update(['status' => 1]);
+            $item = Product::where('user_id', $request->id)->update(['status' => 0]);
+        } else {
+            $products->status = 1;
+            $item = Product::where('user_id', $request->id)->update(['status' => 1]);
         }
         $products->save();
 
