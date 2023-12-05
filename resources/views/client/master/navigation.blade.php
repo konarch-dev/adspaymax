@@ -290,6 +290,11 @@
                                                 <a href="{{ url('/contact') }}">contact us</a>
 
                                             </li>
+                                            <li class="contact-menu marL20">
+
+                                                <a href="{{ url('/faq') }}">FAQ</a>
+
+                                            </li>
 
                                         </ul>
 
