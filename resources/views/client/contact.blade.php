@@ -2,33 +2,32 @@
 
 <html lang="en">
 
-   
+
 @include('client/master/header')
 
 
-   
+
 
 <body>
-    
+
 
     @include('client/master/navigation')
     @yield('content')
 
-        <div class="slider-section">
+    <div class="slider-section">
 
-            <div class="container">
+        <div class="container">
 
-                <div class="categories">
+            <div class="categories">
 
-                    <div class="categorie-section">
+                <div class="categorie-section">
 
-                        <a href="/apmax1/client">
+                    <a href="/apmax1/client">
 
-                            <h5>get all  deals <i class="fa fa-tags" aria-hidden="true"></i></h5>
+                        <h5>get all deals <i class="fa fa-tags" aria-hidden="true"></i></h5>
 
-                        </a>
+                    </a>
 
-                    </div>
 
                 </div>
 
@@ -36,31 +35,31 @@
 
         </div>
 
-        <!-- //***Breadcrumb-section Start***// -->
+    </div>
 
-        <div class="breadcrumb-section">
+    <!-- //***Breadcrumb-section Start***// -->
 
-            <div class="breadcrumb-text">
+    <div class="breadcrumb-section">
 
-                <div class="container">
+        <div class="breadcrumb-text">
 
-                    <div class="row">
+            <div class="container">
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
 
-                            <div class="breadcrumb-text padTB50">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                <h3><span>contact</span></h3>
+                        <div class="breadcrumb-text padTB50">
 
-                                <ul class="breadcrumb-list">
+                            <h3><span>contact</span></h3>
 
-                                    <li><a href="index.html">home</a></li>
+                            <ul class="breadcrumb-list">
 
-                                    <li><a href="#">contact</a></li>
+                                <li><a href="index.html">home</a></li>
 
-                                </ul>
+                                <li><a href="#">contact</a></li>
 
-                            </div>
+                            </ul>
 
                         </div>
 
@@ -72,28 +71,49 @@
 
         </div>
 
-        <!-- //***Breadcrumb-Section End***// -->
+    </div>
 
-        <!-- //***contact-section  Start***// -->
+    <!-- //***Breadcrumb-Section End***// -->
 
-        <div class="contact-section bg padTB60">
+    <!-- //***contact-section  Start***// -->
 
-            <div class="container">
+    <div class="contact-section bg padTB60">
 
-                <div class="row">
+        <div class="container">
+            AdsPayMAX <br>
+            1850 McCulloch Blvd N, Ste C1-234, Lake Havasu City, AZ. 86403. USA<br>
+            (928) 486-5189・(928) 605-5665・info@adspaymax.com<br>
+            Hours<br>
+            Mon 08:00 am – 05:00 pm<br>
+            Tue 08:00 am – 05:00 pm<br>
+            Wed 08:00 am – 05:00 pm<br>
+            Thu 08:00 am – 05:00 pm<br>
+            Fri 08:00 am – 05:00 pm<br>
+            Sat By Appointment<br>
+            Sun By Appointment<br>
+        </div>
+    </div>
 
-                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-                        <div class="row">
+    <div class="contact-section bg padTB60">
 
-                            <div class="comments-form">
+        <div class="container">
 
-                                <div class="coments col-md-12 col-sm-12 col-xs-12 marB30">
+            <div class="row">
 
-                                    <h3>contact us</h3>
+                <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                </div>
+                    <div class="row">
 
+                        <div class="comments-form">
+
+                            <div class="coments col-md-12 col-sm-12 col-xs-12 marB30">
+
+                                <h3>contact us</h3>
+
+                            </div>
+                            <form method="POST" action="{{ route('client.contact1') }}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="col-md-6 col-sm-12 col-xs-12 marB30">
 
                                     <input type="text" name="name" value="" placeholder="Name">
@@ -123,20 +143,18 @@
                                     <button type="submit" class="itg-btn subcribes">subcribes now</button>
 
                                 </div>
-
-                            </div>
-
+                            </form>
                         </div>
 
                     </div>
 
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                </div>
 
-                        <div class="location-map marT50">
+                <div class="col-md-12 col-sm-12 col-xs-12">
 
-                            <div id='gmap_canvas'></div>
+                    <div class="location-map marT50">
 
-                        </div>
+                        <div id='gmap_canvas'></div>
 
                     </div>
 
@@ -146,16 +164,18 @@
 
         </div>
 
-        <!-- //***contact-section  End***// -->
+    </div>
 
-        <div class="clear"></div>
+    <!-- //***contact-section  End***// -->
 
-      
-        @include('client/master/footer')
-        @include('client/master/script/script')
+    <div class="clear"></div>
 
-        @yield('script')
 
-    </body>
+    @include('client/master/footer')
+    @include('client/master/script/script')
+
+    @yield('script')
+
+</body>
 
 </html>

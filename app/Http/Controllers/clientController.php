@@ -330,6 +330,7 @@ class clientController extends Controller
 
     public function contact(Request $request)
     {
+
         $category = Category::select('id', 'name')->where('parent_id', 0)->get();
         foreach ($category as $val) {
 
@@ -341,6 +342,54 @@ class clientController extends Controller
             }
         }
         return view('client.contact', ['category' => $category, 'menu' => $menu]);
+    }
+
+    public function contact1(Request $request)
+    {
+
+        $category = Category::select('id', 'name')->where('parent_id', 0)->get();
+        foreach ($category as $val) {
+
+            $subcategory = Category::select('id', 'name')->where('parent_id', $val->id)->get();
+
+            foreach ($subcategory as $vals) {
+
+                $menu['menu'][$val->name][] = ["primary" => $val->id, 'id' => $vals->id, 'name' => $vals->name];
+            }
+        }
+
+
+        $inputs = [
+            'email'    => $request->email,
+
+            'name' =>  $request->name,
+        ];
+
+        $details = [
+
+            'name' =>  $request->name,
+            'title' => 'Thank for registration with adspaymax',
+
+            'body' => 'This is for testing email using smtp'
+
+        ];
+        'Mail'::to($request->email)->send(new \App\Mail\contact($details));
+        return view('client.contact', ['category' => $category, 'menu' => $menu]);
+    }
+
+    public function faq(Request $request)
+    {
+        $category = Category::select('id', 'name')->where('parent_id', 0)->get();
+        foreach ($category as $val) {
+
+            $subcategory = Category::select('id', 'name')->where('parent_id', $val->id)->get();
+
+            foreach ($subcategory as $vals) {
+
+                $menu['menu'][$val->name][] = ["primary" => $val->id, 'id' => $vals->id, 'name' => $vals->name];
+            }
+        }
+        return view('client.faq', ['category' => $category, 'menu' => $menu]);
     }
 
     public function store(Request $request)
@@ -668,9 +717,6 @@ class clientController extends Controller
                     "address" => $request->address
                 ]);
                 if ($userInsert) {
-
-
-
                     session::put('cusername',  $request->name);
                     session::put('cemail',  $request->email);
                     session::put('ctype',  "client");
