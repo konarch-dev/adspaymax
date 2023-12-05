@@ -229,7 +229,7 @@
 
                                             <li id="category1">
 
-                                                <a href="#">Categories <i class="fa fa-angle-down"
+                                                <a href="/apmax1-ddbkp/category">Categories <i class="fa fa-angle-down"
                                                         aria-hidden="true"></i></a>
 
 
