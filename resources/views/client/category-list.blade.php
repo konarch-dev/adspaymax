@@ -4,30 +4,24 @@
 
 @include('client/master/header')
 
+<body>
 
-   
+    @include('client/master/navigation')
+    @yield('content')
 
-    <body>
-        
+    <div class="slider-section">
 
-        @include('client/master/navigation')
-        @yield('content')
+        <div class="container">
 
-        <div class="slider-section">
+            <div class="categories">
 
-            <div class="container">
+                <div class="categorie-section">
 
-                <div class="categories">
+                    <a href="/apmax1-ddbkp/client">
 
-                    <div class="categorie-section">
+                        <h5>get all deals <i class="fa fa-tags" aria-hidden="true"></i></h5>
 
-                        <a href="/apmax1/client">
-
-                            <h5>get all  deals <i class="fa fa-tags" aria-hidden="true"></i></h5>
-
-                        </a>
-
-                    </div>
+                    </a>
 
                 </div>
 
@@ -35,108 +29,36 @@
 
         </div>
 
-        <!-- //***Breadcrumb-section Start***// -->
+    </div>
 
-        <div class="breadcrumb-section">
+    <!-- //***Breadcrumb-section Start***// -->
 
-            <div class="breadcrumb-text">
+    <div class="breadcrumb-section">
 
-                <div class="container">
-
-                    <div class="row">
-
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-
-                            <div class="breadcrumb-text padTB50">
-
-                                <h3><span>coupons</span></h3>
-
-                                <ul class="breadcrumb-list">
-
-                                    <li><a href="/apmax1/client/">home</a></li>
-
-                                    <li><a href="#">coupons</a></li>
-                                    <li><a href="#">{{$category1->name}}</a></li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- //***Breadcrumb-Section End***// -->
-
-        <!-- //***Coupon-Grid Start***// -->
-
-        <div class="coupons bg padTB60">
+        <div class="breadcrumb-text">
 
             <div class="container">
 
                 <div class="row">
-                    
-                @foreach ($product as $key=>$val)
-                @if(!is_null($product[$key]->image))
-                @php
 
-                $imgurl1 = $product[$key]->image;
-            @endphp
-                    <div class="col-md-4 col-sm-4 col-xs-12 marB30">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-                        <div class="box-b">
+                        <div class="breadcrumb-text padTB50">
 
-                            <figure>
+                            <h3><span>coupons</span></h3>
 
-                                <img style="height: 270px;width:auto;" src="{{ asset($imgurl1) }}" alt="">
+                            <ul class="breadcrumb-list">
 
-                            </figure>
+                                <li><a href="/apmax1-ddbkp/client/">home</a></li>
 
-                        </div>
+                                <li><a href="#">coupons</a></li>
+                                <li><a href="#">{{ $category1->name }}</a></li>
 
-                        <div class="border"></div>
-
-                        <div class="box-detail details">
-
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-
-                                <div class="row">
-
-                                    <h4 class="hover"><a href="/apmax1/coupon-detail/{{$product[$key]->pid}}">{{ $product[$key]->pname }}</a></h4>
-                                    <h4 class="hover"><a href="/apmax1/coupon-detail/{{$product[$key]->pid}}">{{ substr($product[$key]->detail, 0, 30) }} .. read more</a></h4>
-
-                                    <h4 class="marB20 marT20">Stores <span class="grey-a">-<a href="/apmax1/store-detail/{{$product[$key]->id}}"> {{$product[$key]->store}}</a></span></h4>
-
-                                    <h4 class="marB20">expires :<span class="red"> {{ date('Y-m-d',strtotime($product[$key]->valid_till))}}</span></h4>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-12 col-sm-12 col-xs-12 marT20 marB10 text-left">
-
-                                <div class="row">
-
-                                    <a href="/apmax1/coupon-detail/{{$product[$key]->pid}}" class="itg-btn box-btn black">{{$product[$key]->code}}<span>Get Code</span></a>
-
-                                </div>
-
-                            </div>
+                            </ul>
 
                         </div>
 
                     </div>
-
-                    @endif
-                    @endforeach
-    
-
 
                 </div>
 
@@ -144,16 +66,97 @@
 
         </div>
 
-        <!-- //***Coupon-Grid End***// -->
+    </div>
 
-        <div class="clear"></div>
+    <!-- //***Breadcrumb-Section End***// -->
 
-       
-        @include('client/master/footer')
-        @include('client/master/script/script')
+    <!-- //***Coupon-Grid Start***// -->
 
-        @yield('script')
+    <div class="coupons bg padTB60">
 
-    </body>
+        <div class="container">
+
+            <div class="row">
+
+                @foreach ($product as $key => $val)
+                    @if (!is_null($product[$key]->image))
+                        @php
+
+                            $imgurl1 = $product[$key]->image;
+                        @endphp
+                        <div class="col-md-4 col-sm-4 col-xs-12 marB30">
+
+                            <div class="box-b">
+
+                                <figure>
+
+                                    <img style="height: 270px;width:auto;" src="{{ asset($imgurl1) }}" alt="">
+
+                                </figure>
+
+                            </div>
+
+                            <div class="border"></div>
+
+                            <div class="box-detail details">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                    <div class="row">
+
+                                        <h4 class="hover"><a
+                                                href="/apmax1-ddbkp/coupon-detail/{{ $product[$key]->pid }}">{{ $product[$key]->pname }}</a>
+                                        </h4>
+                                        <h4 class="hover"><a
+                                                href="/apmax1-ddbkp/coupon-detail/{{ $product[$key]->pid }}">{{ substr($product[$key]->detail, 0, 30) }}
+                                                .. read more</a></h4>
+
+                                        <h4 class="marB20 marT20">Stores <span class="grey-a">-<a
+                                                    href="/apmax1-ddbkp/store-detail/{{ $product[$key]->id }}">
+                                                    {{ $product[$key]->store }}</a></span></h4>
+
+                                        <h4 class="marB20">expires :<span class="red">
+                                                {{ date('Y-m-d', strtotime($product[$key]->valid_till)) }}</span></h4>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 marT20 marB10 text-left">
+
+                                    <div class="row">
+
+                                        <a href="/apmax1-ddbkp/coupon-detail/{{ $product[$key]->pid }}"
+                                            class="itg-btn box-btn black">{{ $product[$key]->code }}<span>Get
+                                                Code</span></a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    @endif
+                @endforeach
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- //***Coupon-Grid End***// -->
+
+    <div class="clear"></div>
+
+
+    @include('client/master/footer')
+    @include('client/master/script/script')
+
+    @yield('script')
+
+</body>
 
 </html>
