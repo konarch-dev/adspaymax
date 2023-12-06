@@ -48,24 +48,25 @@
                             <div class="col-md-10">
                                 <div
                                     class="card card-transparent auth-card shadow-none d-flex justify-content-center mb-0">
-                                    <div class="card-body">
+                                    <div class="card-body" style="text-align: center">
                                         <a href="../../dashboard/index.html"
-                                            class="navbar-brand d-flex align-items-center mb-3">
+                                            class="navbar-brand d-flex align-items-center mb-3"
+                                            style="justify-content: center">
 
 
-
-
-
-
-                                            <h4 class="logo-title ms-3">AdsPayMax</h4>
-                                        </a>
-                                        <h2 class="mb-2 text-center">Forgot password</h2>
+                                            <img src="http://localhost/apmax1/public/assets/img/logo.png" height="50px"
+                                                width="150px">
+                                        </a><br>
+                                        <h2 class="mb-2 text-right">Forgot password</h2>
 
                                         <form>
                                             <div class="row">
+                                                <div class="col-lg-2">
+                                                </div>
+                                                <div class="col-lg-8">
 
 
-                                                <div class="col-lg-12">
+
                                                     <div class="form-group">
                                                         <label for="email" class="form-label">Email</label>
                                                         <input type="email" id="email"
@@ -73,16 +74,20 @@
                                                             name="email" placeholder=" ">
                                                     </div>
                                                 </div>
-
-
+                                                <div class="col-lg-2">
+                                                </div>
 
                                             </div>
+
+
                                             <div class="d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-primary">Get Password</button>
+                                                <button type="submit" class="btn btn-primary">Get
+                                                    Password</button>
                                             </div>
-
+                                            <br>
                                             <p>
-                                                <a href="{{ url('/seller/login') }}" class="text-underline">Sign In</a>
+                                                <a href="{{ url('/seller/login') }}" class="text-underline">Sign
+                                                    In</a>
                                             </p>
                                             <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                         </form>
