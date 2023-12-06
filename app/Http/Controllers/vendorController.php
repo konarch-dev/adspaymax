@@ -162,7 +162,6 @@ class vendorController extends Controller
         $data['countries'] = Country::get(["name", "id"])
             ->where("id", 1);
 
-
         return view('seller.dashboard.forgot', $data);
     }
 
@@ -190,8 +189,7 @@ class vendorController extends Controller
             'Mail'::to($selUser1[0]['email'])->send(new \App\Mail\ForgotMail($details));
 
             // dd("Email is Sent.");
-
-
+            return redirect()->route('seller.dashboard');
         } else {
             Session::flash('message', 'user not exits');
             Session::flash('alert-class', 'alert-danger');
