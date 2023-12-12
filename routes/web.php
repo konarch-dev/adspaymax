@@ -42,7 +42,6 @@ Route::post('/paypal', [PaymentController::class, 'payWithpaypal'])->name('paypa
 Route::get('/status', [PaymentController::class, 'getPaymentStatus'])->name('status');
 
 
-
 Route::get('client/', [clientController::class, 'index'])->name('client.home');
 Route::get('deals-grid/', [clientController::class, 'dealsGrid']);
 Route::get('deals-list/', [clientController::class, 'dealsList']);
@@ -56,6 +55,8 @@ Route::get('category/', [clientController::class, 'category']);
 Route::get('cart/', [clientController::class, 'cart']);
 Route::get('wishlist/', [clientController::class, 'wishList']);
 Route::get('contact/', [clientController::class, 'contact']);
+Route::get('faq/', [clientController::class, 'faq']);
+Route::get('offer/', [clientController::class, 'offer']);
 Route::get('about/', [clientController::class, 'about']);
 Route::get('store/', [clientController::class, 'store']);
 Route::get('map/', [clientController::class, 'map']);
@@ -69,6 +70,7 @@ Route::prefix('client')->group(function () {
     Route::post('/signin/', [clientController::class, 'signIn'])->name('client.signin')->middleware('clientsession');
     Route::get('/signup/', [clientController::class, 'signup'])->name('client.signup');
     Route::post('register', [clientController::class, 'register'])->name('client.register');
+    Route::post('contact1', [clientController::class, 'contact1'])->name('client.contact1');
     Route::get('/logout/', [clientController::class, 'logout'])->name('client.logout');
     Route::get('/paypalurl/{id}/{amount}', [PaymentController::class, 'clientpayWithpaypalUrl'])->name('clientpaypalurl');
 });
@@ -84,6 +86,8 @@ Route::get('/client/status', [PaymentController::class, 'clientgetPaymentStatus'
 Route::prefix('admin')->group(function () {
 
     Route::get('/register/', [adminController::class, 'register'])->name('admin.register');
+
+
     Route::get('/forgot/', [adminController::class, 'forgot'])->name('admin.forgot');
     Route::post('/signup/', [adminController::class, 'singnUp'])->name('admin.signup');
     Route::get('/login/', [adminController::class, 'login'])->name('admin.login');
@@ -201,3 +205,15 @@ Route::get('password', function () {
 
     dd("Email is Sent.");
 });
+
+// Route::get('contact', function () {
+//     $details = [
+//         'title' => 'Thank for registration with adspaymax',
+
+//         'body' => 'This is for testing email using smtp'
+
+//     ];
+//     'Mail'::to('payal.mundharikar@patterns247.net')->send(new \App\Mail\contact($details));
+
+//     dd("Email is Sent.");
+// });
