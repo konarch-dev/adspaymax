@@ -21,7 +21,32 @@
 
     <!-- //***Header-section Start***// -->
 
+    <style>
+        @media screen and (min-width: 30em) and (orientation: landscape) {
 
+
+            #category2 {
+                display: none;
+            }
+
+            #category1 {
+                display: inline-block;
+            }
+        }
+
+        @media (min-height: 680px),
+        screen and (orientation: portrait) {
+
+            #category1 {
+                display: none;
+            }
+
+            #category2 {
+                display: inline;
+            }
+
+        }
+    </style>
 
 
     <!-- //***Header-section Start***// -->
@@ -202,9 +227,9 @@
 
                                             </li>
 
-                                            <li>
+                                            <li id="category1">
 
-                                                <a href="#">Categories <i class="fa fa-angle-down"
+                                                <a href="/apmax1-ddbkp/category">Categories <i class="fa fa-angle-down"
                                                         aria-hidden="true"></i></a>
 
 
@@ -212,7 +237,7 @@
                                                     @foreach ($category as $key => $val)
                                                         <li>
 
-                                                            <a href="/apmax1/category-list/{{ $val->id }}">{{ $val->name }}
+                                                            <a href="/apmax1-ddbkp/category-list/{{ $val->id }}">{{ $val->name }}
                                                                 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                                             @php
                                                                 $tmp = $val->id;
@@ -225,7 +250,7 @@
                                                                         @if ($menu['menu'][$key][$keys]['primary'] == $tmp)
                                                                             <li>
                                                                                 <a
-                                                                                    href="/apmax1/category-list/{{ $menu['menu'][$key][$keys]['id'] }}">{{ $menu['menu'][$key][$keys]['name'] }}</a>
+                                                                                    href="/apmax1-ddbkp/category-list/{{ $menu['menu'][$key][$keys]['id'] }}">{{ $menu['menu'][$key][$keys]['name'] }}</a>
                                                                             </li>
                                                                         @endif
                                                                     @endforeach
@@ -240,6 +265,11 @@
 
 
                                                 </ul>
+
+                                            </li>
+
+                                            <li id="category2">
+                                                <a href="/apmax1-ddbkp/category">Category</a>
 
                                             </li>
 
@@ -258,6 +288,16 @@
                                             <li class="contact-menu marL20">
 
                                                 <a href="{{ url('/contact') }}">contact us</a>
+
+                                            </li>
+                                            <li class="contact-menu marL20">
+
+                                                <a href="{{ url('/faq') }}">FAQ</a>
+
+                                            </li>
+                                            <li class="contact-menu marL20">
+
+                                                <a href="{{ url('/offer') }}">What We Offer</a>
 
                                             </li>
 
