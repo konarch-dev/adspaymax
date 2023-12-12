@@ -295,7 +295,11 @@
                                                 <a href="{{ url('/faq') }}">FAQ</a>
 
                                             </li>
+                                            <li class="contact-menu marL20">
 
+                                                <a href="{{ url('/offer') }}">What We Offer</a>
+
+                                            </li>
                                         </ul>
 
                                         <!-- navbar-collapse -->

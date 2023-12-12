@@ -56,6 +56,7 @@ Route::get('cart/', [clientController::class, 'cart']);
 Route::get('wishlist/', [clientController::class, 'wishList']);
 Route::get('contact/', [clientController::class, 'contact']);
 Route::get('faq/', [clientController::class, 'faq']);
+Route::get('offer/', [clientController::class, 'offer']);
 Route::get('about/', [clientController::class, 'about']);
 Route::get('store/', [clientController::class, 'store']);
 Route::get('map/', [clientController::class, 'map']);

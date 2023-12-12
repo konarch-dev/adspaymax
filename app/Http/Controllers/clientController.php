@@ -392,6 +392,22 @@ class clientController extends Controller
         return view('client.faq', ['category' => $category, 'menu' => $menu]);
     }
 
+    public function offer(Request $request)
+    {
+        $category = Category::select('id', 'name')->where('parent_id', 0)->get();
+        foreach ($category as $val) {
+
+            $subcategory = Category::select('id', 'name')->where('parent_id', $val->id)->get();
+
+            foreach ($subcategory as $vals) {
+
+                $menu['menu'][$val->name][] = ["primary" => $val->id, 'id' => $vals->id, 'name' => $vals->name];
+            }
+        }
+        return view('client.offer', ['category' => $category, 'menu' => $menu]);
+    }
+
+
     public function store(Request $request)
     {
         $category = Category::select('id', 'name')->where('parent_id', 0)->get();
