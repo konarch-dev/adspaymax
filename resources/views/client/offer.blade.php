@@ -330,9 +330,9 @@
                             MAX offers exclusive postcards mailed only to the buyers you’ve never met, on a monthly or
                             weekly affordable basis.
                             NO WASTE・HUGE ROI・EXCLUSIVITY
-                        </p>
+                        </p> <br><br>
                     </div>
-                    <br><br>
+
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <img src="{{ url('/public/assets/img/all/m1.jpg') }}" alt="">
