@@ -429,7 +429,6 @@
                     </div>
                     <br>
 
-
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <img src="{{ url('/public/assets/img/all/m3.jpg') }}" alt="">
@@ -539,11 +538,11 @@
             MESSAGE MOVES・SO DO THEIR
             EYES</div>
         <br>
-        <div
-            style=" display: block;z-index: 10;
-        position: relative;text-align: center;width: 1140px;
-            height: 641px">
-            <iframe src="http://www.youtube.com/embed/oNVaEkuFuiU">
+        <div style=" display: block;z-index: 10;
+        position: relative;text-align: center;">
+            <iframe style="width: 1140px;
+            height: 641px;text-align: center"
+                src="http://www.youtube.com/embed/oNVaEkuFuiU">
             </iframe>
 
         </div>
