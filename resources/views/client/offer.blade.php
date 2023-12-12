@@ -394,7 +394,7 @@
                                 style="font-size: 18px;color: #0f0f0f;text-align: left;font-family:ABeeZee;font-weight:400;font-style:normal">
                                 DIGITAL ADSPAYMAX MAGAZINE</h2><br>
                             <h2
-                                style="font-size: 14px;color: #dd3333;text-align: left;;font-weight:600;font-style:normal;font-family: serif;">
+                                style="font-size: 13px;color: #dd3333;text-align: left;;font-weight:600;font-style:normal;font-family: serif;">
                                 A monthly pre-paid plan at a price less than an expresso coffee per day</h2><br>
                             <ol
                                 style="    unicode-bidi: isolate;
@@ -444,7 +444,7 @@
                                 style="font-size: 18px;color: #0f0f0f;text-align: left;font-family:ABeeZee;font-weight:400;font-style:normal">
                                 EXCLUSIVE ADSPAYMAX MASS EMAILS</h2><br>
                             <h2
-                                style="font-size: 14px;color: #dd3333;text-align: left;;font-weight:600;font-style:normal;font-family: serif;">
+                                style="font-size: 13px;color: #dd3333;text-align: left;;font-weight:600;font-style:normal;font-family: serif;">
                                 A monthly pre-paid plan at a price less than 2 cups of coffee per day but a maximum 2
                                 mass mailings per month</h2><br>
                             <ol
