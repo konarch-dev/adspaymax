@@ -186,7 +186,7 @@
                         <div class="info">
                             <h4 class="text-center">DIGITAL MAGAZINE</h4><br>
                             <img style="max-width: 100%;height: auto;object-fit: contain;display: block;text-align: center"
-                                src="{{ asset('public/assets/img/all/offer1.jpg') }}" alt=""><br>
+                                src="{{ asset('/public/assets/img/all/offer1.jpg') }}" alt=""><br>
                             <p
                                 style="font-size: 20px;font-family: ABeeZee;color: black;text-align: center;
                 ">
@@ -208,7 +208,7 @@
 
                         <h4 class="text-center">ADSPAYMAX・POCKET BOOK COUPONS</h4><br>
                         <img style="max-width: 100%;height: auto;object-fit: contain;display: block;text-align: center"
-                            src="{{ asset('public/assets/img/all/offer2.jpg') }}" alt=""><br>
+                            src="{{ asset('/public/assets/img/all/offer2.jpg') }}" alt=""><br>
                         <p
                             style="font-size: 20px;font-family: ABeeZee;color: black;text-align: center;
                             ">
